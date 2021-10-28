@@ -15,8 +15,6 @@ class Produto(Base):
     id_produto = Column(Integer, primary_key=True)
     nome_produto = Column(String)
 
-    produto_aceito_data = relationship("Aceito", backref="produto")
-
 
 # Tabela destino
 class Destino(Base):
@@ -27,8 +25,6 @@ class Destino(Base):
     telefone_destino = Column(String)
     mapa_destino = Column(String)
 
-    destino_aceito_data = relationship("Aceito", backref="destino")
-
 
 # Tabela produto_aceito
 class Aceito(Base):
@@ -36,18 +32,3 @@ class Aceito(Base):
     id_aceito = Column(Integer, primary_key=True)
     id_produto = Column(ForeignKey('produto.id_produto'))
     id_destino = Column(ForeignKey('destino.id_destino'))
-
-
-def get_aceitos():
-    return db_session.query(Aceito)
-
-
-def get_produtos(aceito):
-    return [produto.id_produto for produto in produto.produto_aceito_data]
-
-
-def get_destinos(aceito):
-    return [destino.id_destino for destino in destino.destino_aceito_data]
-
-
-data = get_aceitos()
