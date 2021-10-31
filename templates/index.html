@@ -1,24 +1,20 @@
-﻿<!DOCTYPE html>
-<html lang="pt-BR">
+﻿{% extends 'base.html' %}
 
-
-<head>
-    <title>Descarte Certo Limeira</title>
-    <meta charset="UTF-8">
-</head>
+{% block content %}
+    <h1>{% block title %} Descarte Certo Limeira {% endblock %}</h1>
 
 
 <body>
-    <h1>
-        Descarte Certo Limeira
-    </h1>
     <p>
         A página que te mostra onde descartar resíduos sólidos corretamente!
     </p>
-    <link href="../static/style.css" rel="stylesheet" type="text/css">
+
     <h2>
         Selecione qual ítem você quer descartar abaixo
     </h2>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
     <div id="element1">
         <ul class="filtro">
             <div class="itens">
@@ -75,4 +71,5 @@
         </ul>
     </ul>
 </body>
-</html>
+{% endblock %}
+

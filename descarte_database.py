@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship, sessionmaker
 
 metadata = MetaData()
 engine = create_engine('sqlite:///descarte_database', connect_args={'check_same_thread': False},
-                       echo=False)  # echo=False
+                       echo=True)  # echo=False
 Base = declarative_base()
 db_session = sessionmaker(bind=engine)()
 
@@ -26,9 +26,9 @@ class Destino(Base):
     mapa_destino = Column(String)
 
 
-# Tabela produto_aceito
-class Aceito(Base):
-    __tablename__ = 'produto_aceito'
-    id_aceito = Column(Integer, primary_key=True)
+# Tabela descarte
+class Descarte(Base):
+    __tablename__ = 'descarte'
+    id_descarte = Column(Integer, primary_key=True)
     id_produto = Column(ForeignKey('produto.id_produto'))
     id_destino = Column(ForeignKey('destino.id_destino'))
