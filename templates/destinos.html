@@ -1,4 +1,4 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <h1>{% block title %} Descarte Certo Limeira {% endblock %}</h1>
@@ -17,37 +17,34 @@
 
     <div id="element1">
         <ul class="filtro">
-            <form action = "{{ request.path }}" method = "post">
             <div class="itens">
                 <p>
-                    <input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item1" value="10"><label for="item1">Informatica</label>
+                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item1" value="10"><label for="item1">Informatica</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item2" value="6"><label for="item2">Aparelhos eletrônicos</label>
+                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item2" value="6"><label for="item2">Aparelhos eletrônicos</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item3" value="7"><label for="item3">Eletrodomésticos</label>
+                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item3" value="7"><label for="item3">Eletrodomésticos</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item4" value="5"><label for="item4">Pilhas e Baterias comuns</label>
+                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item4" value="5"><label for="item4">Pilhas e Baterias comuns</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item5" value="15"><label for="item5">Bateria de celular</label>
+                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item5" value="15"><label for="item5">Bateria de celular</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item6" value="14"><label for="item6">Celulares e acessórios</label>
+                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item6" value="14"><label for="item6">Celulares e acessórios</label>
                 </p>
-                <p><input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item7" value="8"><label for="item7">Lâmpadas</label>
+                <p><input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item7" value="8"><label for="item7">Lâmpadas</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto').submit();" type="radio" name="item" id="item8" value="3"><label for="item8">Óleo de cozinha</label>
+                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item8" value="3"><label for="item8">Óleo de cozinha</label>
                 </p>
             </div>
             <button
-                    type="submit" name = "btnSubmit" value = "submit">Filtrar
+                    class="btn_busca_ponto btnBP2" type="submit">Filtrar
             </button>
-                <a> </a>
-            </form>
         </ul>
     </div>
     <div id="element2">
