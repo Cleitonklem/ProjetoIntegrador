@@ -3,70 +3,81 @@
 {% block content %}
     <h1>{% block title %} Descarte Certo Limeira {% endblock %}</h1>
 
-
 <body>
     <p>
         A página que te mostra onde descartar resíduos sólidos corretamente!
     </p>
-
     <h2>
-        Selecione qual ítem você quer descartar abaixo
+        Locais encontrados:
     </h2>
 
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <div id="element3">
+        {% for Endereco in endereco %}
+            <p><h5>{{ Endereco.nome}}</h5>
+            <p>{{ Endereco.endereco }}</p>
+            <p>{{ Endereco.telefone }}</p>
+            <p><iframe
+                    src="{{ Endereco.mapa }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe></p>
+        {% endfor %}
+    </div>
 
     <div id="element1">
-        <ul class="filtro">
-            <div class="itens">
+        <h5>
+        Selecione o ítem que você
+            quer descartar:
+        </h5>
+
+        <p><div class="filtro">
+            <form action = "{{ request.path }}" method = "post">
                 <p>
-                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item1" value="10"><label for="item1">Informatica</label>
-                </p>
-                <p>
-                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item2" value="6"><label for="item2">Aparelhos eletrônicos</label>
-                </p>
-                <p>
-                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item3" value="7"><label for="item3">Eletrodomésticos</label>
-                </p>
-                <p>
-                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item4" value="5"><label for="item4">Pilhas e Baterias comuns</label>
+                    <input type="radio" name="item" id="item1" value="1"><label for="item1">Informatica</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item5" value="15"><label for="item5">Bateria de celular</label>
+                    <input type="radio" name="item" id="item2" value="2"><label for="item2">Aparelhos eletrônicos</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item6" value="14"><label for="item6">Celulares e acessórios</label>
-                </p>
-                <p><input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item7" value="8"><label for="item7">Lâmpadas</label>
+                    <input type="radio" name="item" id="item3" value="3"><label for="item3">Eletrodomésticos</label>
                 </p>
                 <p>
-                    <input onClick="$('#busca-ponto-form').submit();" type="radio" name="item" id="item8" value="3"><label for="item8">Óleo de cozinha</label>
+                    <input type="radio" name="item" id="item4" value="4"><label for="item4">Pilhas e Baterias comuns</label>
                 </p>
-            </div>
-            <button
-                    class="btn_busca_ponto btnBP2" type="submit">Filtrar
-            </button>
-        </ul>
-    </div>
-    <div id="element2">
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235754.5485509014!2d-47.50184858576187!3d-22.591636109678703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c880ecaee30113%3A0xd333475dd751788f!2sLimeira%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1635393784008!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
+                <p>
+                    <input type="radio" name="item" id="item5" value="5"><label for="item5">Bateria de celular</label>
+                </p>
+                <p>
+                    <input type="radio" name="item" id="item6" value="6"><label for="item6">Celulares e acessórios</label>
+                </p>
+                <p>
+                    <input type="radio" name="item" id="item7" value="7"><label for="item7">Lâmpadas</label>
+                </p>
+                <p>
+                    <input type="radio" name="item" id="item8" value="8"><label for="item8">Óleo de cozinha</label>
+                </p>
+
+                 <button
+                         class="busca"  type="submit" >Filtrar
+                 </button>
+
+            </form>
+        </div>
     </div>
     <h5>Uma Iniciativa:</h5>
     <ul>
         <li>
-            <a> PJI110-0010-LIMEIRA-Grupo-004 </a>
+            PJI110-0010-LIMEIRA-Grupo-004
         </li>
         <ul>
-            <li><a> Cleiton Hesper Klem </a></li>
-            <li><a> Cristiane Aparecida da Silva </a></li>
-            <li><a> Reinaldo Júnior da Costa </a></li>
-            <li><a> Sandra Mara Sóares Alves Costa </a></li>
+            <li> Cleiton Hesper Klem </li>
+            <li> Cristiane Aparecida da Silva </li>
+            <li> Reinaldo Júnior da Costa </li>
+            <li> Sandra Mara Sóares Alves Costa </li>
         </ul>
         <h5>Apoio:</h5>
         <ul>
             <li>
-                <a> UNIVESP - Universidade Virtual do Estado de São Paulo  </a>
+                UNIVESP - Universidade Virtual do Estado de São Paulo
             </li>
         </ul>
     </ul>

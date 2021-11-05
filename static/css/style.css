@@ -6,14 +6,36 @@ body
 {
     display: inline-block;
     vertical-align: top;
-    margin-top: 90px;
+    margin-top: 10px;
     alignment: left;
     width: 25%;
 }
 
 #element2
 {
-        display: inline-block;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    alignment: left;
+    width: 40%;
+}
+#element3
+{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 90px;
+    alignment: left;
+    width: 25%;
+    height: 25%;
+}
+#element4
+{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    alignment: left;
+    width: auto;
+
 }
 h1 {
     border: 2px #eee solid;
