@@ -45,17 +45,20 @@ def __init__(self, item, nome, endereco, telefone, mapa, produto_id, destino_id)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        if not request.form['']:
+        if not request.form['item']:
             flash('Por Favor selecione um dos items', 'error')
         else:
-            busca = Descartes(request.form['busca-ponto'])
-        return redirect(url_for("destinos.html"))
+            busca = request.form['item']
+
+            print(busca)
+            flash('Record was successfully added')
+            return redirect(url_for('destino'))
     return render_template("index.html")
 
 
-@app.route('/cadastrar')
-def cadastrar():
-    return render_template('show_all.html', descartes=Descartes.query.all(),
+@app.route('/destino')
+def destino():
+    return render_template('destinos.html', descartes=Descartes.query.all(),
                            produtos=Produtos.query.all(), destinos=Destinos.query.all())
 
 
