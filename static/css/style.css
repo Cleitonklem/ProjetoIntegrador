@@ -4,42 +4,58 @@ body
 }
 #element1
 {
+    border: 2px #eee solid;
     display: inline-block;
     vertical-align: top;
-    margin-top: 10px;
     alignment: left;
-    width: 25%;
+    width: auto;
+    margin: 10px;
 }
 
 #element2
 {
     display: inline-block;
-    vertical-align: top;
-    margin-top: 10px;
-    alignment: left;
-    width: 40%;
+    margin: 10px;
 }
 #element3
 {
+    border: 2px #eee solid;
     display: inline-block;
     vertical-align: top;
-    margin-top: 90px;
-    alignment: left;
-    width: 25%;
-    height: 25%;
+    margin-top: 10px;
+    alignment: top;
+    width: 600px;
+
 }
 #element4
 {
     display: inline-block;
+    vertical-align: central;
+    margin-top: 10px;
+    alignment: center;
+    width: 300px;
+}
+#element5
+{
+    display: inline;
     vertical-align: top;
     margin-top: 10px;
     alignment: left;
     width: auto;
-
+}
+#element6
+{
+    border: 2px #eee solid;
+    display: block;
+    vertical-align: center;
+    margin-top: 10px;
+    alignment: center;
+    width: auto;
 }
 h1 {
     border: 2px #eee solid;
     color: brown;
     text-align: center;
     padding: 10px;
+    width: auto;
 }

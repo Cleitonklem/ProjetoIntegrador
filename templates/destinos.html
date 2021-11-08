@@ -8,61 +8,29 @@
         A página que te mostra onde descartar resíduos sólidos corretamente!
     </p>
     <h2>
-        Locais encontrados:
+        Locais encontrados:                       <h5>Clique no mapa para amplia-lo!</h5>
     </h2>
 
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-    <div id="element3">
+    <div id="element6">
         {% for Endereco in endereco %}
-            <p><h5>{{ Endereco.nome}}</h5>
-            <p>{{ Endereco.endereco }}</p>
-            <p>{{ Endereco.telefone }}</p>
-            <p><iframe
-                    src="{{ Endereco.mapa }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe></p>
+            <div id="element3">
+                <h5>{{ Endereco.destino.nome}}</h5>
+                <p> {{ Endereco.destino.endereco }} -</p>
+                <p> {{ Endereco.destino.telefone }}</p>
+            </div>
+            <div id="element4">
+            <iframe
+                src="{{ Endereco.destino.mapa }}" width="300" height="230" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+            </div>
         {% endfor %}
     </div>
 
-    <div id="element1">
-        <h5>
-        Selecione o ítem que você
-            quer descartar:
-        </h5>
+    <h3>
+         <a href = "{{ url_for('index') }}">Fazer nova Busca</a>
+    </h3>
 
-        <p><div class="filtro">
-            <form action = "{{ request.path }}" method = "post">
-                <p>
-                    <input type="radio" name="item" id="item1" value="1"><label for="item1">Informatica</label>
-                </p>
-                <p>
-                    <input type="radio" name="item" id="item2" value="2"><label for="item2">Aparelhos eletrônicos</label>
-                </p>
-                <p>
-                    <input type="radio" name="item" id="item3" value="3"><label for="item3">Eletrodomésticos</label>
-                </p>
-                <p>
-                    <input type="radio" name="item" id="item4" value="4"><label for="item4">Pilhas e Baterias comuns</label>
-                </p>
-                <p>
-                    <input type="radio" name="item" id="item5" value="5"><label for="item5">Bateria de celular</label>
-                </p>
-                <p>
-                    <input type="radio" name="item" id="item6" value="6"><label for="item6">Celulares e acessórios</label>
-                </p>
-                <p>
-                    <input type="radio" name="item" id="item7" value="7"><label for="item7">Lâmpadas</label>
-                </p>
-                <p>
-                    <input type="radio" name="item" id="item8" value="8"><label for="item8">Óleo de cozinha</label>
-                </p>
-
-                 <button
-                         class="busca"  type="submit" >Filtrar
-                 </button>
-
-            </form>
-        </div>
-    </div>
     <h5>Uma Iniciativa:</h5>
     <ul>
         <li>

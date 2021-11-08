@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash
 from flask_bootstrap import Bootstrap
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
@@ -34,7 +34,6 @@ class Destino(Base):
     endereco = Column(String(50))
     telefone = Column(String(200))
     mapa = Column(String(10))
-    produto_id = Column(Integer, ForeignKey('produtos.id'))
     desc_dest = relationship(Descarte, backref='destinos')
 
     def __repr__(self):
@@ -47,7 +46,6 @@ class Produto(Base):
     id = Column(Integer, primary_key=True)
     item = Column(String(100))
     desc_pro = relationship(Descarte, backref='produtos')
-    dest_pro = relationship(Destino, backref='produtos')
 
     def __repr__(self):
         return f'Produto({self.item})'
@@ -62,20 +60,20 @@ def index():
     global endereco
     if request.method == 'POST':
         if not request.form['item']:
+            flash('Please enter all the fields', 'error')
             return render_template("index.html")
-            #flash('Por Favor selecione um dos items', 'error')
         else:
-            endereco = session.query(Destino).filter(Destino.produto_id == request.form['item']).all()
+            #endereco = session.query(Destino).filter(Destino.produto_id == request.form['item']).all()
+            endereco = session.query(Descarte).filter(Descarte.produto_id == request.form['item']).all()
             print(endereco)
             return render_template('destinos.html', endereco=endereco)
-            #return redirect(url_for('destinos'))
     return render_template("index.html")
 
 
 # Carrega página que mostra os pontos de descarte na cidade
 @app.route('/destinos')
 def destinos():
-    return render_template('destinos.html', endereco=endereco)
+    return render_template('destinos.html')
 
 
 # Carrega a página com os feedbacks
