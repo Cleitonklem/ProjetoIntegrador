@@ -8,8 +8,12 @@
         A página que te mostra onde descartar resíduos sólidos corretamente!
     </p>
     <h2>
-        Locais encontrados:                       <h5>Clique no mapa para amplia-lo!</h5>
+        Locais encontrados:
     </h2>
+    <h5>
+        Clique no mapa para amplia-lo!
+    </h5>
+
 
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <div id="element6">
@@ -21,7 +25,7 @@
             </div>
             <div id="element4">
             <iframe
-                src="{{ Endereco.destino.mapa }}" width="300" height="230" style="border:0;" allowfullscreen="" loading="lazy">
+                src="{{ Endereco.destino.mapa }}" width="110%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
             </div>
         {% endfor %}

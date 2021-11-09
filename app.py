@@ -63,7 +63,6 @@ def index():
             flash('Please enter all the fields', 'error')
             return render_template("index.html")
         else:
-            #endereco = session.query(Destino).filter(Destino.produto_id == request.form['item']).all()
             endereco = session.query(Descarte).filter(Descarte.produto_id == request.form['item']).all()
             print(endereco)
             return render_template('destinos.html', endereco=endereco)
@@ -80,6 +79,12 @@ def destinos():
 @app.route('/opiniao')
 def opiniao():
     return render_template("opiniao.html")
+
+
+# Carrega a página para cadastrar itens e locais novos
+@app.route('/cadastrar')
+def cadastrar():
+    return render_template("cadastrar.html")
 
 
 if __name__ == '__main__':

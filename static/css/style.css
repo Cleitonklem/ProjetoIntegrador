@@ -16,24 +16,26 @@ body
 {
     display: inline-block;
     margin: 10px;
+    vertical-align: top;
+    alignment: top;
+    width: 50%;
 }
 #element3
 {
     border: 2px #eee solid;
     display: inline-block;
     vertical-align: top;
-    margin-top: 10px;
+    margin: 10px;
     alignment: top;
-    width: 600px;
+    width: 50%;
 
 }
 #element4
 {
     display: inline-block;
-    vertical-align: central;
-    margin-top: 10px;
-    alignment: center;
-    width: 300px;
+    vertical-align: top;
+    margin: 10px;
+    alignment: top;
 }
 #element5
 {
