@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Descarte Certo Limeira {% endblock %}</h1>
+    <p>
+        A página que te mostra onde descartar resíduos sólidos corretamente!
+    </p>
+    <body>
+        {% for Esperando in esperando %}
+            <div>
+                <p> Itens aceitos: {{ Esperando.cadastro.cad_item}} </p>
+                <p> Nome do local: {{ Esperando.cadastro.cad_nome}} </p>
+                <p> Endereço do local: {{ Esperando.cadastro.cad_endereco }} </p>
+                <p> Telefone do local: {{ Esperando.cadastro.Cad_telefone }} </p>
+            </div>
+        {% endfor %}
+    </body>
+{% endblock %}

@@ -2,11 +2,26 @@
 
 {% block content %}
     <h1>{% block title %} Descarte Certo Limeira {% endblock %}</h1>
-<body>
     <p>
-          A página que te mostra onde descartar resíduos sólidos corretamente!
+        A página que te mostra onde descartar resíduos sólidos corretamente!
     </p>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-</body>
+    <body>
+        <div id="element5">
+            <form action = "{{ request.path }}" method = "post">
+                <table>
+                    <tr>
+                        <p>Ítem aceito para descarte:</p>
+                        <p><input type="text" name="cad_item" width="400px"></p>
+                        <p>Nome do local:</p>
+                        <p><input type="text" width="50px" name="cad_nome"></p>
+                        <p>Endereço do local:</p>
+                        <p><input type="text" name="cad_endereco"></p>
+                        <p>Telefone do local</p>
+                        <p><input type="text" name="cad_telefone"></p>
+                    </tr>
+                </table><br>
+                <input type="submit" value="Cadastrar">
+            </form>
+        </div>
+    </body>
 {% endblock %}

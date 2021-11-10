@@ -10,49 +10,30 @@
     <h2>
         Locais encontrados:
     </h2>
-    <h5>
+    <p><h5>
         Clique no mapa para amplia-lo!
-    </h5>
+    </h5></p>
 
-
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-    <div id="element6">
-        {% for Endereco in endereco %}
-            <div id="element3">
-                <h5>{{ Endereco.destino.nome}}</h5>
-                <p> {{ Endereco.destino.endereco }} -</p>
-                <p> {{ Endereco.destino.telefone }}</p>
+    <p><div class="container; min-width: 768px">
+	        <div class="row">
+                {% for Endereco in endereco %}
+	                <div class="col-6">
+                        <h5>{{ Endereco.destino.nome}}</h5>
+                        <p> {{ Endereco.destino.endereco }}
+                        <p> {{ Endereco.destino.telefone }}
+                    </div>
+                    <div class="col-6">
+                       <p><iframe
+                            src="{{ Endereco.destino.mapa }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe></p>
+                    </div>
+                {% endfor %}
             </div>
-            <div id="element4">
-            <iframe
-                src="{{ Endereco.destino.mapa }}" width="110%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-            </div>
-        {% endfor %}
     </div>
 
     <h3>
          <a href = "{{ url_for('index') }}">Fazer nova Busca</a>
     </h3>
-
-    <h5>Uma Iniciativa:</h5>
-    <ul>
-        <li>
-            PJI110-0010-LIMEIRA-Grupo-004
-        </li>
-        <ul>
-            <li> Cleiton Hesper Klem </li>
-            <li> Cristiane Aparecida da Silva </li>
-            <li> Reinaldo Júnior da Costa </li>
-            <li> Sandra Mara Sóares Alves Costa </li>
-        </ul>
-        <h5>Apoio:</h5>
-        <ul>
-            <li>
-                UNIVESP - Universidade Virtual do Estado de São Paulo
-            </li>
-        </ul>
-    </ul>
 </body>
 {% endblock %}
 
