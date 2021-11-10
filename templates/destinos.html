@@ -1,39 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Descarte Certo Limeira {% endblock %}</h1>
 
-<body>
-    <p>
-        A página que te mostra onde descartar resíduos sólidos corretamente!
-    </p>
-    <h2>
-        Locais encontrados:
-    </h2>
-    <p><h5>
-        Clique no mapa para amplia-lo!
-    </h5></p>
-
-    <p><div class="container; min-width: 768px">
+    <body>
+        <h2>
+            Locais encontrados:
+        </h2>
 	        <div class="row">
                 {% for Endereco in endereco %}
 	                <div class="col-6">
-                        <h5>{{ Endereco.destino.nome}}</h5>
-                        <p> {{ Endereco.destino.endereco }}
-                        <p> {{ Endereco.destino.telefone }}
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ Endereco.destino.nome}}</h5>
+                                <p class="card-text">
+                                    <p>{{ Endereco.destino.endereco }}</p>
+                                    <p> {{ Endereco.destino.telefone }}</p>
+                                    <p>Clique no mapa para amplia-lo!</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-6">
-                       <p><iframe
-                            src="{{ Endereco.destino.mapa }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe></p>
+                        <div class="card">
+                            <div class="card-body">
+                                <iframe
+                                    src="{{ Endereco.destino.mapa }}" width="100%" height="120%" style="border:0;" allowfullscreen="" loading="lazy">
+                                </iframe>
+                            </div>
+                        </div><p></p>
                     </div>
                 {% endfor %}
             </div>
-    </div>
+        </div>
+        <a class="btn btn-primary btn-lg btn-block" href="{{ url_for('index') }}">Fazer nova Busca</a>
+    </body>
 
-    <h3>
-         <a href = "{{ url_for('index') }}">Fazer nova Busca</a>
-    </h3>
-</body>
 {% endblock %}
 

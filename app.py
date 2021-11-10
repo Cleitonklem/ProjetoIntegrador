@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from flask_bootstrap import Bootstrap
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
@@ -10,6 +10,7 @@ session = Session()
 Base = declarative_base()
 Bootstrap()
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "random string"
 
 
 # Tabela Descartes
@@ -72,12 +73,8 @@ global endereco
 def index():
     global endereco
     if request.method == 'POST':
-        if not request.form['item']:
-            return render_template("index.html")
-        else:
-            endereco = session.query(Descarte).filter(Descarte.produto_id == request.form['item']).all()
-            print(endereco)
-            return render_template('destinos.html', endereco=endereco)
+        endereco = session.query(Descarte).filter(Descarte.produto_id == request.form['item']).all()
+        return render_template('destinos.html', endereco=endereco)
     return render_template("index.html")
 
 
