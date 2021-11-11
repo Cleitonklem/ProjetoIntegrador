@@ -4,23 +4,23 @@
 
     <body>
         <div class="container">
-            <h4>Digita as informações sobre o locar e quais itens podem ser descartados lá:</h4>
+            <h4>Digite as informações sobre o local e quais itens podem ser descartados lá:</h4>
             <form action = "{{ request.path }}" method = "post">
                 <div class="form-group">
                     <label for="cad_item">Itens aceitos para descarte:</label>
-                    <input type="text" class="form-control" id="cad_item" aria-describedby="Digite a lista de itens aceitos para descarte!" placeholder="Itens para descarte">
+                    <input type="text" class="form-control" name="cad_item" id="cad_item" aria-describedby="Digite a lista de itens aceitos para descarte!" placeholder="Itens para descarte">
                 </div>
                 <div class="form-group">
-                    <label for="cad_local">Nome:</label>
-                    <input type="text" class="form-control" id="cad_local" aria-describedby="Digite o nome do local para cadastro!" placeholder="Local para descarte">
+                    <label for="cad_nome">Nome:</label>
+                    <input type="text" class="form-control" name="cad_nome" id="cad_nome" aria-describedby="Digite o nome do local para cadastro!" placeholder="Local para descarte">
                 </div>
                 <div class="form-group">
                     <label for="cad_endereco">Endereço:</label>
-                    <input type="text" class="form-control" id="cad_endereco" aria-describedby="Digite o nome da rua, numero e o bairro do local para cadastro!" placeholder="Endereço para descarte">
+                    <input type="text" class="form-control" name="cad_endereco" id="cad_endereco" aria-describedby="Digite o nome da rua, numero e o bairro do local para cadastro!" placeholder="Endereço para descarte">
                 </div>
                 <div class="form-group">
                     <label for="cad_telefone">Telefone:</label>
-                    <input type="text" class="form-control" id="cad_telefone" aria-describedby="Digite o numero do telefone do local para cadastro!" placeholder="Telefone para contado">
+                    <input type="text" class="form-control" name="cad_telefone" id="cad_telefone" aria-describedby="Digite o numero do telefone do local para cadastro!" placeholder="Telefone para contado">
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>

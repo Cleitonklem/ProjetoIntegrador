@@ -65,6 +65,25 @@ class Cadastro(Base):
         return f'Cadastro({self.cad_item},{self.cad_nome}, {self.cad_endereco}, {self.cad_telefone})'
 
 
+# Tabela de Respostas
+class Respostas(Base):
+    __tablename__ = 'respostas'
+    resp1 = Column(String)
+    resp2 = Column(String)
+    resp3 = Column(String)
+    resp4 = Column(String)
+    resp5 = Column(String)
+    resp6 = Column(String)
+    resp7 = Column(String)
+    resp8 = Column(String)
+    resp9 = Column(String)
+    resp10 = Column(String)
+
+    def __repr__(self):
+        return f'Respostas({self.resp1},{self.resp2}, {self.resp4}, {self.resp5},{self.resp6}, ' \
+               f'{self.resp7}, {self.resp8}, {self.resp9},{self.resp10})'
+
+
 global endereco
 
 
@@ -85,8 +104,19 @@ def destinos():
 
 
 # Carrega a página com os feedbacks
-@app.route('/opiniao')
+@app.route('/opiniao', methods=['GET', 'POST'])
 def opiniao():
+    if request.method == 'POST':
+        cadastro = Cadastro(resp1=request.form['resp1'], resp2=request.form['resp2'],
+                            resp3=request.form['resp3'], resp4=request.form['resp4'],
+                            resp5=request.form['resp5'], resp6=request.form['resp6'],
+                            resp7=request.form['resp7'], resp8=request.form['resp8'],
+                            resp9=request.form['resp9'], resp10=request.form['resp10'])
+
+        session.add(cadastro)
+        session.commit()
+
+        return render_template("index.html")
     return render_template("opiniao.html")
 
 
@@ -94,16 +124,13 @@ def opiniao():
 @app.route('/cadastrar', methods=['GET', 'POST'])
 def cadastrar():
     if request.method == 'POST':
-        cad_item = request.form['cad_item']
-        cad_nome = request.form['cad_nome']
-        cad_endereco = request.form['cad_endereco']
-        cad_telefone = request.form['cad_telefone']
+        cadastro = Cadastro(cad_item=request.form['cad_item'], cad_nome=request.form['cad_nome'],
+                            cad_endereco=request.form['cad_endereco'], cad_telefone=request.form['cad_telefone'])
 
-        cad_dados = Cadastro(cad_item, cad_nome, cad_endereco, cad_telefone)
-       # session.add(cad_dados)
-        #session.commit()
+        session.add(cadastro)
+        session.commit()
 
-       # return render_template("index.html")
+        return render_template("index.html")
 
     return render_template("cadastrar.html")
 
@@ -115,4 +142,5 @@ def espera():
 
 
 if __name__ == '__main__':
+
     app.run(debug=True)

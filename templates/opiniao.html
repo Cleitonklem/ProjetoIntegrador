@@ -3,7 +3,52 @@
 {% block content %}
 
     <body>
-
+        <div class="container">
+            <h4>Digite as informações sobre o local e quais itens podem ser descartados lá:</h4>
+            <form action = "{{ request.path }}" method = "post">
+                <div class="form-group">
+                    <label for="resp1">pergunta 1:</label>
+                    <input type="text" class="form-control" name="resp1" id="resp1">
+                </div>
+                <div class="form-group">
+                    <label for="resp2">pergunta 2:</label>
+                    <input type="text" class="form-control" name="resp2" id="resp2">
+                </div>
+                <div class="form-group">
+                    <label for="resp3">pergunta 3:</label>
+                    <input type="text" class="form-control" name="resp3" id="resp3">
+                </div>
+                <div class="form-group">
+                    <label for="resp4">pergunta 4:</label>
+                    <input type="text" class="form-control" name="resp4" id="resp4">
+                </div>
+                <div class="form-group">
+                    <label for="resp5">pergunta 5:</label>
+                    <input type="text" class="form-control" name="resp5" id="resp5">
+                </div>
+                <div class="form-group">
+                    <label for="resp6">pergunta 6:</label>
+                    <input type="text" class="form-control" name="resp6" id="resp6">
+                </div>
+                <div class="form-group">
+                    <label for="resp7">pergunta 7:</label>
+                    <input type="text" class="form-control" name="resp7" id="resp7">
+                </div>
+                <div class="form-group">
+                    <label for="resp8">pergunta 8:</label>
+                    <input type="text" class="form-control" name="resp8" id="resp8">
+                </div>
+                <div class="form-group">
+                    <label for="resp9">pergunta 9:</label>
+                    <input type="text" class="form-control" name="resp9" id="resp9">
+                </div>
+                <div class="form-group">
+                    <label for="resp10">pergunta 10:</label>
+                    <input type="text" class="form-control" name="resp10" id="resp10">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
     </body>
 
 {% endblock %}
