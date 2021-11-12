@@ -65,25 +65,6 @@ class Cadastro(Base):
         return f'Cadastro({self.cad_item},{self.cad_nome}, {self.cad_endereco}, {self.cad_telefone})'
 
 
-# Tabela de Respostas
-class Respostas(Base):
-    __tablename__ = 'respostas'
-    resp1 = Column(String)
-    resp2 = Column(String)
-    resp3 = Column(String)
-    resp4 = Column(String)
-    resp5 = Column(String)
-    resp6 = Column(String)
-    resp7 = Column(String)
-    resp8 = Column(String)
-    resp9 = Column(String)
-    resp10 = Column(String)
-
-    def __repr__(self):
-        return f'Respostas({self.resp1},{self.resp2}, {self.resp4}, {self.resp5},{self.resp6}, ' \
-               f'{self.resp7}, {self.resp8}, {self.resp9},{self.resp10})'
-
-
 global endereco
 
 
