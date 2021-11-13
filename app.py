@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
@@ -10,7 +10,6 @@ session = Session()
 Base = declarative_base()
 Bootstrap()
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "random string"
 
 
 # Tabela Descartes
@@ -63,6 +62,28 @@ class Cadastro(Base):
 
     def __repr__(self):
         return f'Cadastro({self.cad_item},{self.cad_nome}, {self.cad_endereco}, {self.cad_telefone})'
+
+
+# Tabela com o Feedback
+class Resposta(Base):
+    __tablename__ = 'respostas'
+    id = Column(Integer, primary_key=True)
+    resp1 = Column(String)
+    resp2 = Column(String)
+    resp3 = Column(String)
+    resp4 = Column(String)
+    resp5 = Column(String)
+    resp6 = Column(String)
+    resp7 = Column(String)
+    resp8 = Column(String)
+    resp9 = Column(String)
+    resp10 = Column(String)
+
+    def __repr__(self):
+        return f'Resposta({self.resp1}, {self.resp2}, {self.resp3}, {self.resp4}, {self.resp5},' \
+               f' {self.resp6}, {self.resp7}, {self.resp8}, {self.resp9}, {self.resp10})'
+
+
 
 
 global endereco
@@ -120,6 +141,11 @@ def cadastrar():
 def espera():
     esperando = Cadastro.query.all()
     return render_template("espera.html", esperando=esperando)
+
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
 
 
 if __name__ == '__main__':

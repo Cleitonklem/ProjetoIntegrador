@@ -8,7 +8,7 @@
         </h2>
 	        <div class="row">
                 {% for Endereco in endereco %}
-	                <div class="col-6">
+	                <div class="col-7" >
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">{{ Endereco.destino.nome}}</h4>
@@ -19,11 +19,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-5">
                         <div class="card">
                             <div class="card-body">
                                 <iframe
-                                    src="{{ Endereco.destino.mapa }}" width="100%" height="120%" style="border:0;" allowfullscreen="" loading="lazy">
+                                    src="{{ Endereco.destino.mapa }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                                 </iframe>
                             </div>
                         </div><p></p>
