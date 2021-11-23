@@ -68,35 +68,61 @@ class Cadastro(Base):
 class Resposta(Base):
     __tablename__ = 'respostas'
     id = Column(Integer, primary_key=True)
-    resp1 = Column(String)
-    resp2 = Column(String)
-    resp3 = Column(String)
-    resp4 = Column(String)
-    resp5 = Column(String)
-    resp6 = Column(String)
-    resp7 = Column(String)
-    resp8 = Column(String)
-    resp9 = Column(String)
-    resp10 = Column(String)
+    resp1 = Column(String(20))
+    resp2 = Column(String(20))
+    resp3 = Column(String(20))
+    resp4 = Column(String(20))
+    resp5 = Column(String(20))
+    resp6 = Column(String(20))
+    resp7 = Column(String(20))
+    resp8 = Column(String(20))
+    resp9 = Column(String(100))
+    resp10 = Column(String(100))
+    resp11 = Column(String(100))
 
     def __repr__(self):
-        return f'Resposta({self.resp1}, {self.resp2}, {self.resp3}, {self.resp4}, {self.resp5},' \
-               f' {self.resp6}, {self.resp7}, {self.resp8}, {self.resp9}, {self.resp10})'
+        return f'({self.resp1}, {self.resp2}, {self.resp3}, {self.resp4}, {self.resp5},' \
+               f' {self.resp6}, {self.resp7}, {self.resp8}, {self.resp9}, {self.resp10}, {self.resp11})'
 
 
+# Tabela de usuarios
+class User(Base):
+    __tablename__ = 'users'
+    username = Column(String, primary_key=True)
+    password = Column(String)
 
-
-global endereco
+    def __repr__(self):
+        return f'({self.username}, {self.password})'
 
 
 # Carrega página principal
-@app.route('/', methods=['GET', 'POST'],)
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    global endereco
     if request.method == 'POST':
         endereco = session.query(Descarte).filter(Descarte.produto_id == request.form['item']).all()
         return render_template('destinos.html', endereco=endereco)
     return render_template("index.html")
+
+
+# Carrega página de login
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        usuario = request.form['username']
+        senha = request.form['password']
+        if bool(session.query(User).filter_by(username=usuario, password=senha).first()):
+            esperando = session.query(Cadastro).all()
+            resp = session.query(Resposta).all()
+            if bool(session.query(Resposta).filter_by(id="").first()) and \
+                    bool(session.query(Cadastro).filter_by(id="").first()):
+                vazio = "Não existem dados aguardando aprovação, nem formulários novos preenchidos!"
+                return render_template("espera.html", vazio=vazio)
+            else:
+                return render_template("espera.html", esperando=esperando, resp=resp,)
+        else:
+            erro = "Login ou senha incorretos, por favor tente outra vez!"
+            return render_template("login.html", erro=erro)
+    return render_template("login.html")
 
 
 # Carrega página que mostra os pontos de descarte na cidade
@@ -109,15 +135,15 @@ def destinos():
 @app.route('/opiniao', methods=['GET', 'POST'])
 def opiniao():
     if request.method == 'POST':
-        cadastro = Cadastro(resp1=request.form['resp1'], resp2=request.form['resp2'],
+        resposta = Resposta(resp1=request.form['resp1'], resp2=request.form['resp2'],
                             resp3=request.form['resp3'], resp4=request.form['resp4'],
                             resp5=request.form['resp5'], resp6=request.form['resp6'],
                             resp7=request.form['resp7'], resp8=request.form['resp8'],
-                            resp9=request.form['resp9'], resp10=request.form['resp10'])
+                            resp9=request.form['resp9'], resp10=request.form['resp10'],
+                            resp11=request.form['resp11'])
 
-        session.add(cadastro)
+        session.add(resposta)
         session.commit()
-
         return render_template("index.html")
     return render_template("opiniao.html")
 
@@ -131,7 +157,6 @@ def cadastrar():
 
         session.add(cadastro)
         session.commit()
-
         return render_template("index.html")
 
     return render_template("cadastrar.html")
@@ -139,15 +164,8 @@ def cadastrar():
 
 @app.route('/espera')
 def espera():
-    esperando = Cadastro.query.all()
-    return render_template("espera.html", esperando=esperando)
-
-
-@app.route('/login', methods=["GET", "POST"])
-def login():
-    return render_template("login.html")
+    return render_template("espera.html")
 
 
 if __name__ == '__main__':
-
     app.run(debug=True)

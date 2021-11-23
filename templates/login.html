@@ -2,7 +2,25 @@
 
 {% block content %}
     <body>
-
+        <div class="error">
+            {{erro}}
+        </div>
+            <div class="row">
+                <div class="col">
+                    <form action = "{{ request.path }}" method = "post">
+                        <div class="form-login">
+                            <label>Username</label>
+                            <p><input class="form-control" type="text" name="username">
+                        </div>
+                        <div class="form-login">
+                            <label>Password</label>
+                            <p><input class="form-control" type="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 
 {% endblock %}

@@ -2,15 +2,45 @@
 
 {% block content %}
 
-    <body>
-        {% for Esperando in esperando %}
-            <div>
-                <p> Itens aceitos: {{ Esperando.cadastro.cad_item}} </p>
-                <p> Nome do local: {{ Esperando.cadastro.cad_nome}} </p>
-                <p> Endereço do local: {{ Esperando.cadastro.cad_endereco }} </p>
-                <p> Telefone do local: {{ Esperando.cadastro.Cad_telefone }} </p>
-            </div>
-        {% endfor %}
+    <body xmlns="http://www.w3.org/1999/html">
+        <h2>{{ vazio }}</h2>
+        <div class="row">
+            {% for Esperando in esperando %}
+                <div class="col-7" >
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Itens e locais aguardando aprovação!</h2>
+                            <p> Itens aceitos: {{ Esperando.cad_item}}
+                            <p> Nome do local: {{ Esperando.cad_nome}}
+                            <p> Endereço do local: {{ Esperando.cad_endereco }}
+                            <p> Telefone do local: {{ Esperando.cad_telefone }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for Resp in resp %}
+                <div class="col-7" >
+                    <div class="card">
+                        <div class="card-body">
+                            <p> Resp 1: {{ Resp.resp1}} </p>
+                            <p> Resp 2: {{ Resp.resp2}} </p>
+                            <p> Resp 3: {{ Resp.resp3}} </p>
+                            <p> Resp 4: {{ Resp.resp4}} </p>
+                            <p> Resp 5: {{ Resp.resp5}} </p>
+                            <p> Resp 6: {{ Resp.resp6}} </p>
+                            <p> Resp 7: {{ Resp.resp7}} </p>
+                            <p> Resp 8: {{ Resp.resp8}} </p>
+                            <p> Resp 9: {{ Resp.resp9}} </p>
+                            <p> Resp 10: {{ Resp.resp10}} </p>
+                            <p> Resp 11: {{ Resp.resp11}} </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </body>
 
 {% endblock %}

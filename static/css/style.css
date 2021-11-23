@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
+
 body
 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -7,7 +8,9 @@ body
 
 h1 {
     border: 2px #eee solid;
-    color: green;
+    color: white;
+    background-color:limegreen;
+
 }
 
 .navbar-laravel
@@ -43,3 +46,19 @@ h1 {
     margin-left: 0;
     margin-right: 0;
 }
+.error
+{
+    border: 3px red;
+    color: red;
+    text-decoration-skip-box: all;
+}
+.form-group
+{
+    border: 2px #eee solid;
+}
+
+.btn-primary
+{
+    color:#fff;
+    background-color:limegreen;
+    border-color:#005a5a}

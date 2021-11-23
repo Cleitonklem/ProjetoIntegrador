@@ -4,50 +4,83 @@
 
     <body>
         <div class="container">
-            <h4>Digite as informações sobre o local e quais itens podem ser descartados lá:</h4>
+            <h5>Obrigado por responder a este breve questionário, com as suas respostas poderemos completar nosso
+                trabalho e saber se conseguimos resultados positivos para a cidade de Limeira e se devemos manter
+                este site online e atualizado.</h5>
             <form action = "{{ request.path }}" method = "post">
+
                 <div class="form-group">
-                    <label for="resp1">pergunta 1:</label>
-                    <input type="text" class="form-control" name="resp1" id="resp1">
+                    <label for="resp1">1) Esta foi a primeira vez que visitou o site Descarte certo Limeira?</label>
+                    <p><input type="radio" name="resp1" id="resp1.1" checked value="Sim"><label for="resp1.1">Sim</label>
+                    <p><input type="radio" name="resp1" id="resp1.2" value="Não"><label for="resp1.2">Não</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="resp2">2) Você conhece outro site que preste um serviço parecido com esse para
+                        a população de Limeira?</label>
+                    <p><input type="radio" name="resp2" id="resp2.1" checked value="Sim"><label for="resp2.1">Sim</label>
+                    <p><input type="radio" name="resp2" id="resp2.2" value="Não"><label for="resp2.2">Não</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="resp3">3) Você achou o que precisava?</label>
+                    <p><input type="radio" name="resp3" id="resp3.1" checked value="Sim, tudo"><label for="resp3.1">Sim, tudo</label>
+                    <p><input type="radio" name="resp3" id="resp3.2" value="Sim, uma parte"><label for="resp3.2">Sim, uma parte</label>
+                    <p><input type="radio" name="resp3" id="resp3.3" value="Não"><label for="resp3.3">Não</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="resp4">4) É fácil encontrar informações no site?    </label>
+                    <p><input type="radio" name="resp4" id="resp4.1" checked value="Muito fácil"><label for="resp4.1">Muito fácil</label>
+                    <p><input type="radio" name="resp4" id="resp4.2" value="Fácil"><label for="resp4.2">Fácil</label>
+                    <p><input type="radio" name="resp4" id="resp4.3" value="Medianamente fácil"><label for="resp4.3">Medianamente fácil</label>
+                    <p><input type="radio" name="resp4" id="resp4.4" value="Difícil"><label for="resp4.4">Difícil</label>
+                    <p><input type="radio" name="resp4" id="resp4.5" value="Muito difícil"><label for="resp4.5">Muito difícil</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="resp5">5) Na sua opinião esse site dever mantido e atualizado com mais produtos para descarte e locais?</label>
+                    <p><input type="radio" name="resp5" id="resp5.1" checked value="Sim"><label for="resp5.1">Sim</label>
+                    <p><input type="radio" name="resp5" id="resp5.2" value="Não"><label for="resp5.2">Não</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="resp6">6) Na sua opinião esse site pode ser util para a cidade de Limeira?</label>
+                    <p><input type="radio" name="resp6" id="resp6.1" checked value="Sim"><label for="resp6.1">Sim</label>
+                    <p><input type="radio" name="resp6" id="resp6.2" value="Não"><label for="resp6.2">Não</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="resp7">7) Qual é a probabilidade de você visitar o site novamente?  </label>
+                    <p><input type="radio" name="resp7" id="resp7.1" checked value="Muito provável"><label for="resp7.1">Muito provável</label>
+                    <p><input type="radio" name="resp7" id="resp7.2" value="Provável"><label for="resp7.2">Provável</label>
+                    <p><input type="radio" name="resp7" id="resp7.3" value="Não sei"><label for="resp7.3">Não sei</label>
+                    <p><input type="radio" name="resp7" id="resp7.4" value="Improvável"><label for="resp7.4">Improvável</label>
+                    <p><input type="radio" name="resp7" id="resp7.5" value="Muito improvável"><label for="resp7.5">Muito improvável</label>
+                </div>
+
+                <div class="form-group">
+                     <label for="resp8">8) Qual é a probabilidade de você indicar o site a outras pessoas?   </label>
+                     <p><input type="radio" name="resp8" id="resp8.1" checked value="Muito provável"><label for="resp8.1">Muito provável</label>
+                     <p><input type="radio" name="resp8" id="resp8.2" value="Provável"><label for="resp8.2">Provável</label>
+                     <p><input type="radio" name="resp8" id="resp8.3" value="Não sei"><label for="resp8.3">Não sei</label>
+                     <p><input type="radio" name="resp8" id="resp8.4" value="Improvável"><label for="resp8.4">Improvável</label>
+                     <p><input type="radio" name="resp8" id="resp8.5" value="Muito improvável"><label for="resp8.5">Muito improvável</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="resp9">9) Adicione suas sugestões, criticas ou comentários para que nosso trabalho fique ainda mais completo. :</label>
+                    <p><input type="text" class="form-control" name="resp9" id="resp9.1" placeholder="Deixe a sua opinião">
                 </div>
                 <div class="form-group">
-                    <label for="resp2">pergunta 2:</label>
-                    <input type="text" class="form-control" name="resp2" id="resp2">
-                </div>
-                <div class="form-group">
-                    <label for="resp3">pergunta 3:</label>
-                    <input type="text" class="form-control" name="resp3" id="resp3">
-                </div>
-                <div class="form-group">
-                    <label for="resp4">pergunta 4:</label>
-                    <input type="text" class="form-control" name="resp4" id="resp4">
-                </div>
-                <div class="form-group">
-                    <label for="resp5">pergunta 5:</label>
-                    <input type="text" class="form-control" name="resp5" id="resp5">
-                </div>
-                <div class="form-group">
-                    <label for="resp6">pergunta 6:</label>
-                    <input type="text" class="form-control" name="resp6" id="resp6">
-                </div>
-                <div class="form-group">
-                    <label for="resp7">pergunta 7:</label>
-                    <input type="text" class="form-control" name="resp7" id="resp7">
-                </div>
-                <div class="form-group">
-                    <label for="resp8">pergunta 8:</label>
-                    <input type="text" class="form-control" name="resp8" id="resp8">
-                </div>
-                <div class="form-group">
-                    <label for="resp9">pergunta 9:</label>
-                    <input type="text" class="form-control" name="resp9" id="resp9">
-                </div>
-                <div class="form-group">
-                    <label for="resp10">pergunta 10:</label>
-                    <input type="text" class="form-control" name="resp10" id="resp10">
+                    <label for="resp10">10) Qual seu primeiro nome e o bairro onde mora?</label>
+                    <p><input type="text" class="form-control" name="resp10" id="resp10.1" placeholder="Seu primeiro nome">
+                    <p><input type="text" class="form-control" name="resp11" id="resp11.1" placeholder="Bairro onde mora">
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+            </form><p>
+            Obrigado por ter respondido a esse pequeno questionário, suas respostas serão muito uteis para que possamos se o objetivo do site foi alcançado.
+
         </div>
     </body>
 
