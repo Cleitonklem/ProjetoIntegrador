@@ -61,4 +61,12 @@ h1 {
 {
     color:#fff;
     background-color:limegreen;
-    border-color:#005a5a}
+    border-color:#005a5a;
+}
+
+.btn-secondary
+{
+    color: black;
+    background-color: white;
+    border-color: white;
+}
