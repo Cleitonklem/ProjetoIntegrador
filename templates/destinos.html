@@ -19,7 +19,6 @@
                                 <p class="card-text">
                                     <p>{{ Endereco.destino.endereco }}</p>
                                     <p> {{ Endereco.destino.telefone }}</p>
-                                    <p>Clique no mapa para amplia-lo!</p>
                             </div>
                         </div>
                     </div>
@@ -30,6 +29,7 @@
                                     src="{{ Endereco.destino.mapa }}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                                 </iframe>
                             </div>
+                            Clique no mapa para amplia-lo!
                         </div><p></p>
                     </div>
                 {% endfor %}

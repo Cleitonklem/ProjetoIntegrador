@@ -3,7 +3,7 @@
   <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">
-      <title>Descarte Certo Limeira</title>
+      <title> Descarte Certo Limeira</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
       <!-- Bootstrap CSS -->
@@ -30,21 +30,23 @@
                     <a class="nav-link" href="opiniao">Deixe a sua opinião</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="destinos"></a>
-                </li>
-                <li class="nav-item active">
                     <a class="nav-link" href="login">Login</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="destinos"></a>
+                </li>
+
             </ul>
         </div>
     </nav>
 
-    <p><div class="card text-center">
+    <p>
+        <div class="card text-center">
         <div class="card-body">
-            <h1 class="card-title"> Descarte Certo Limeira </h1>
+            <a class="btn btn-block" href="{{ url_for('index') }}"><h1>Descarte Certo Limeira</h1></a>
             <p><h6 class="card-subtitle mb-2 text-muted">O App que te mostra onde descartar resíduos corretamente na cidade de Limeira!</h6>
         </div>
-    </div></p>
+    </div>
 
     <div class="container">
         {% block content %}
